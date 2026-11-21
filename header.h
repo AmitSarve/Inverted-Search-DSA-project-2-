@@ -15,7 +15,7 @@ typedef struct subnode
 
 typedef struct mainnode
 {
-    char word[25];
+    char word[100];
     int filecount;
     subnode*sublink;
     struct mainnode*link;
@@ -39,3 +39,11 @@ int display_database(mainnode_t*hash[]);
 int save_database(mainnode_t *hash[],char*);
 
 int search_database(mainnode_t *hash[]);
+int update_database(mainnode_t *hash[], file_node **head);
+
+int insert_backup_word(mainnode_t *hash[],char *word,char *filename,int wordcount,int index);
+int add_file_to_list(file_node **head, char *filename);
+int is_file_present(file_node *head, char *filename);
+int is_file_indexed(mainnode_t *hash[], char *filename);
+
+int validate_backup(char *backup_file);
